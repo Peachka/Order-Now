@@ -1,9 +1,9 @@
-package com.example.ordernow.data
+package com.example.ordernow.data.product
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "products")
+@Entity(tableName = "product")
 data class Product(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
