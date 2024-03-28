@@ -13,7 +13,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.ordernow.ui.order_now.OrderNow
 import com.example.ordernow.ui.order_now.OrderNowScreen
 import com.example.ordernow.ui.theme.OrderNowTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

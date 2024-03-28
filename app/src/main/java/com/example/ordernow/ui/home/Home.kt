@@ -5,4 +5,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun Home(viewModel: HomeViewModel = hiltViewModel()) {
+
+    HomeScreen()
 }

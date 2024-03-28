@@ -6,6 +6,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.ordernow.navigation.OrderNowNavHost
 import com.example.ordernow.ui.patterns.OrderNowBottomBar
 import com.example.ordernow.ui.patterns.OrderNowTopBar
 
@@ -18,10 +19,9 @@ fun OrderNowScreen(appState: OrderNowState) {
         Scaffold(
             scaffoldState = appState.scaffoldState,
                 topBar = { OrderNowTopBar() },
-        bottomBar = { OrderNowBottomBar() }
+        bottomBar = { OrderNowBottomBar(appState.navController) }
         ) { contentPadding ->
-        println(contentPadding)
-
-         }
+            OrderNowNavHost(appState, contentPadding)
+        }
     }
 }
