@@ -14,14 +14,14 @@ import androidx.compose.material.contentColorFor
 @Composable
 fun OrderNowTopBar() {
     TopAppBar(
-            title = {
-                Text(
-                        text = stringResource(id = R.string.app_name),
+        title = {
+            Text(
+                text = stringResource(id = R.string.app_name),
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
-                )
-                 },
-    backgroundColor = MaterialTheme.colors.background,
-    contentColor = contentColorFor(MaterialTheme.colors.background)
+            )
+        },
+        backgroundColor = MaterialTheme.colors.background,
+        contentColor = contentColorFor(MaterialTheme.colors.background)
     )
 }

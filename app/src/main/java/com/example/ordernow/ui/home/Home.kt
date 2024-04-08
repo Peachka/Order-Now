@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun Home(viewModel: HomeViewModel = hiltViewModel()) {
+fun Home(viewModel: HomeViewModel = hiltViewModel(), goToProductList: () -> Unit) {
 
-    HomeScreen()
+    HomeScreen(goToProductList)
 }

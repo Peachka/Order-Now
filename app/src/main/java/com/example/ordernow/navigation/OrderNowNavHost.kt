@@ -20,28 +20,43 @@ fun OrderNowNavHost(appState: OrderNowState, paddingValues: PaddingValues) {
         modifier = androidx.compose.ui.Modifier.padding(paddingValues)
     ) {
         appSoGraph(appState)
-         }
+    }
+}
+
+fun NavGraphBuilder.appSoGraph(appState: OrderNowState) {
+
+    val homeRoute = OrderNowScreenRoute.Home.route
+    val listRoute = OrderNowScreenRoute.ProductList.route
+    val detailRoute = OrderNowScreenRoute.ProductDetail.route
+
+    val goToListFromHome: () -> Unit = {
+        appState.navigateSaved(listRoute, homeRoute)
     }
 
-fun NavGraphBuilder.appSoGraph(appState: OrderNowState){
+    val goToDetailsFromList: () -> Unit = {
+        appState.navigateSaved(detailRoute, listRoute)
+    }
 
+    val goBack: () -> Unit = {
+        appState.popUp()
+    }
     // Home Screen Graph
     composable(NavigationBarSection.Home.route) {
-        Home()
-         }
+        Home(goToProductList = goToListFromHome)
+    }
 
     // Cart Screen Graph
     composable(NavigationBarSection.Cart.route) {
         Cart()
-         }
+    }
 
     // Product List Screen Graph
     composable(OrderNowScreenRoute.ProductList.route) {
-        ProductList()
-         }
+        ProductList(goToProductDetails = goToDetailsFromList)
+    }
 
     // Product Detail Screen Graph
     composable(OrderNowScreenRoute.ProductDetail.route) {
-        ProductDetails()
-         }
+        ProductDetails(goBack = goBack)
     }
+}

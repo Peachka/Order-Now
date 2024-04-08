@@ -29,34 +29,34 @@ fun OrderNowBottomBar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
     BottomNavigation(
-            backgroundColor = MaterialTheme.colors.background,
-    contentColor = contentColorFor(MaterialTheme.colors.background),
-    elevation = 10.dp
+        backgroundColor = MaterialTheme.colors.background,
+        contentColor = contentColorFor(MaterialTheme.colors.background),
+        elevation = 10.dp
     ) {
         NavigationBarSection.sections.forEach { section ->
             val selected =
-            currentDestination?.hierarchy?.any {
-                it.route == section.route
-                         } == true
+                currentDestination?.hierarchy?.any {
+                    it.route == section.route
+                } == true
             BottomNavigationItem(
-                    icon = {
-                        Icon(
-                                imageVector = section.icon,
+                icon = {
+                    Icon(
+                        imageVector = section.icon,
                         contentDescription = stringResource(section.title)
-                        )
-                        },
-            label = { Text(text = stringResource(section.title)) },
-            selected = selected,
-            unselectedContentColor = Color.Gray,
-            selectedContentColor = MainAppColor,
-            onClick = {
-                navController.navigate(section.route) {
-                    popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
+                    )
+                },
+                label = { Text(text = stringResource(section.title)) },
+                selected = selected,
+                unselectedContentColor = Color.Gray,
+                selectedContentColor = MainAppColor,
+                onClick = {
+                    navController.navigate(section.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
                     }
-                    launchSingleTop = true
-                    restoreState = true
-                     }
                 })
         }
     }

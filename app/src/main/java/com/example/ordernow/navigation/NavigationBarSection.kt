@@ -12,7 +12,7 @@ sealed class NavigationBarSection(
     @StringRes val title: Int,
     val icon: ImageVector,
     val route: String
-    ) {
+) {
     companion object {
         val sections = listOf(
             Home,
@@ -30,5 +30,5 @@ sealed class NavigationBarSection(
         title = R.string.cart,
         icon = Icons.Filled.ShoppingCart,
         route = OrderNowScreenRoute.Cart.route
-        )
-    }
+    )
+}

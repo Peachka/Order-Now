@@ -1,4 +1,4 @@
-package com.example.ordernow.ui.home
+package com.example.ordernow.ui.product_details
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,16 +10,17 @@ import androidx.compose.ui.Modifier
 
 
 @Composable
-fun HomeScreen(goToProductList: () -> Unit){
-    Column(modifier =  Modifier.fillMaxSize()){
-        Box(){
+fun ProductDetailsScreen(goBack: () -> Unit) {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Box() {
 
-            Text(text = "Home")
+            Text(text = "Product Details Screen")
         }
-        
+
         Button(
-            onClick =  goToProductList) {
-            Text(text = "Go to product list")
+            onClick = goBack
+        ) {
+            Text(text = "Go Back to product list")
         }
     }
 }
